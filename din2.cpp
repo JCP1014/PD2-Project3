@@ -15,10 +15,12 @@
 #include"totoro1.h"
 #include"lulumi1.h"
 #include"arrow.h"
+#include"phone.h"
+#include"cplus.h"
 
 Din2::Din2(QGraphicsItem *parent)
 {
-    hp = 15;
+    hp = 11;
     setPixmap(QPixmap(":/image/img/din2.png"));
     int y[2] = {0,360};
     setPos(rand()%279+197,y[rand()%2]);
@@ -30,7 +32,7 @@ Din2::Din2(QGraphicsItem *parent)
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(150);
     QTimer * timer2 = new QTimer(this);
-    connect(timer2,SIGNAL(timeout()),this,SLOT(move()));
+    connect(timer2,SIGNAL(timeout()),this,SLOT(blood()));
     timer2->start(250);
 }
 
@@ -78,8 +80,8 @@ void Din2::blood()
             hp -= 5;
         if(typeid(*(colliding_items[i])) == typeid(Lulumi1))
             hp -= 4;
-        if(typeid(*(colliding_items[i])) == typeid(Arrow))
-            hp -= 1;
+        if(typeid(*(colliding_items[i])) == typeid(Arrow) || typeid(*(colliding_items[i])) == typeid(Phone) || typeid(*(colliding_items[i])) == typeid(CPlus))
+            hp -= 2;
     }
 
     if(hp<=0)

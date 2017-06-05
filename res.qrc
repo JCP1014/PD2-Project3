@@ -39,12 +39,15 @@
         <file>img/no.png</file>
         <file>img/choose.png</file>
         <file>img/cancel.png</file>
-        <file>img/c++.png</file>
         <file>img/electric.png</file>
-        <file>img/linear.png</file>
         <file>img/matlab.png</file>
         <file>img/lens.png</file>
         <file>img/light.png</file>
+        <file>img/hero.png</file>
+        <file>img/linear.png</file>
+        <file>img/blackphone.png</file>
+        <file>img/whitephone.png</file>
+        <file>img/c++ 2.png</file>
     </qresource>
     <qresource prefix="/sound">
         <file>snd/Walking on grass.mp3</file>

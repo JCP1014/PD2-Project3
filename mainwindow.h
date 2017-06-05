@@ -44,6 +44,8 @@ public slots:
     void create1_6();
     void create1_7();
     void create1_8();
+    void create1_9();
+    void create1_14();
     void createTornado();
     void closeChoose();
     void set1();

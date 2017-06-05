@@ -19,7 +19,7 @@
 
 Luffy1::Luffy1(QGraphicsItem *parent)
 {
-    hp = 11;
+    hp = 8;
     setPixmap(QPixmap(":/image/img/luffy.png"));
     int y[2] = {0,360};
     //setPos(rand()%279-258,y[rand()%2]);
@@ -31,7 +31,7 @@ Luffy1::Luffy1(QGraphicsItem *parent)
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(150);
     QTimer * timer2 = new QTimer(this);
-    connect(timer2,SIGNAL(timeout()),this,SLOT(move()));
+    connect(timer2,SIGNAL(timeout()),this,SLOT(blood()));
     timer2->start(250);
 
     attacksound = new QMediaPlayer();

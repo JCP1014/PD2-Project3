@@ -19,7 +19,7 @@
 
 Din1::Din1(QGraphicsItem *parent)
 {
-    hp = 15;
+    hp = 11;
     setPixmap(QPixmap(":/image/img/din1.png"));
     //int y[2] = {0,360};
     //setPos(rand()%279-258,y[rand()%2]);
@@ -31,7 +31,7 @@ Din1::Din1(QGraphicsItem *parent)
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(150);
     QTimer * timer2 = new QTimer(this);
-    connect(timer2,SIGNAL(timeout()),this,SLOT(move()));
+    connect(timer2,SIGNAL(timeout()),this,SLOT(blood()));
     timer2->start(250);
 
     walksound = new QMediaPlayer();

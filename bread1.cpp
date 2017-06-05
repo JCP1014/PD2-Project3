@@ -4,7 +4,6 @@
 #include<qmath.h>
 #include<QGraphicsScene>
 #include<QList>
-#include<stdlib.h>
 #include"scene.h"
 #include"luffy2.h"
 #include"zoro2.h"
@@ -18,9 +17,9 @@
 
 Bread1::Bread1(QGraphicsItem *parent)
 {
-    hp = 7;
+    hp = 5;
+    STEP_SIZE = 20;
     setPixmap(QPixmap(":/image/img/bread1.png"));
-    //setPos(rand()%246-230,rand()%523);
     points << QPointF(200,200) << QPointF(400,200);
     point_index = 0;
     destn = points[0];
@@ -29,7 +28,7 @@ Bread1::Bread1(QGraphicsItem *parent)
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(150);
     QTimer * timer2 = new QTimer(this);
-    connect(timer2,SIGNAL(timeout()),this,SLOT(move()));
+    connect(timer2,SIGNAL(timeout()),this,SLOT(blood()));
     timer2->start(250);
 
 }
@@ -42,7 +41,6 @@ void Bread1::rotate_to_point(QPointF face)
 
 void Bread1::move()
 {
-    int STEP_SIZE = 20;
     double theta = rotation();
     double dx = STEP_SIZE*qCos(qDegreesToRadians(theta));
     double dy = STEP_SIZE*qSin(qDegreesToRadians(theta));

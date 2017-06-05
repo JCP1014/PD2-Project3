@@ -18,7 +18,7 @@
 
 Curry1::Curry1(QGraphicsItem *parent)
 {
-    hp = 7;
+    hp = 5;
     setPixmap(QPixmap(":/image/img/curry1.png"));
     //setPos(rand()%246-230,rand()%523);
     points << QPointF(200,200) << QPointF(400,200);
@@ -29,7 +29,7 @@ Curry1::Curry1(QGraphicsItem *parent)
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(150);
     QTimer * timer2 = new QTimer(this);
-    connect(timer2,SIGNAL(timeout()),this,SLOT(move()));
+    connect(timer2,SIGNAL(timeout()),this,SLOT(blood()));
     timer2->start(250);
 
 }

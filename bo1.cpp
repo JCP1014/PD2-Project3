@@ -27,7 +27,7 @@
 
 Bo1::Bo1(QGraphicsItem *parent) : QObject()
 {
-    hp = 15;
+    hp = 11;
     setPixmap(QPixmap(":/image/img/bo1.png"));
     //int y[2] = {0,360};
     //setPos(rand()%279-258,y[rand()%2]);

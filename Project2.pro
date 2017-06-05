@@ -40,7 +40,11 @@ SOURCES += main.cpp\
     totoro2.cpp \
     dialog.cpp \
     lcdnumber.cpp \
-    tornado.cpp
+    tornado.cpp \
+    pd2.cpp \
+    linear.cpp \
+    phone.cpp \
+    cplus.cpp
 
 HEADERS  += mainwindow.h \
     scene.h \
@@ -68,11 +72,16 @@ HEADERS  += mainwindow.h \
     totoro2.h \
     dialog.h \
     lcdnumber.h \
-    tornado.h
+    tornado.h \
+    pd2.h \
+    linear.h \
+    phone.h \
+    cplus.h
 
 FORMS    += mainwindow.ui
 
 RESOURCES += \
     res.qrc
 
-DISTFILES +=
+DISTFILES += \
+    img/c++ 2.png

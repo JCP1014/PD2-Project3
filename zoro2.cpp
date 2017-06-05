@@ -14,11 +14,12 @@
 #include"totoro1.h"
 #include"lulumi1.h"
 #include"arrow.h"
-
+#include"phone.h"
+#include"cplus.h"
 
 Zoro2::Zoro2(QGraphicsItem *parent)
 {
-        hp = 11;
+        hp = 8;
         setPixmap(QPixmap(":/image/img/zoro2.png"));
         int y[2] = {0,360};
         setPos(rand()%279+197,y[rand()%2]);
@@ -30,7 +31,7 @@ Zoro2::Zoro2(QGraphicsItem *parent)
         connect(timer,SIGNAL(timeout()),this,SLOT(move()));
         timer->start(150);
         QTimer * timer2 = new QTimer(this);
-        connect(timer2,SIGNAL(timeout()),this,SLOT(move()));
+        connect(timer2,SIGNAL(timeout()),this,SLOT(blood()));
         timer2->start(250);
 
         attacksound = new QMediaPlayer();
@@ -89,8 +90,8 @@ void Zoro2::blood()
         if(typeid(*(colliding_items[i])) == typeid(Lulumi1))
             hp -= 4;
             attacksound->play();
-        if(typeid(*(colliding_items[i])) == typeid(Arrow))
-            hp -= 1;
+        if(typeid(*(colliding_items[i])) == typeid(Arrow) || typeid(*(colliding_items[i])) == typeid(Phone) || typeid(*(colliding_items[i])) == typeid(CPlus))
+            hp -= 2;
             attacksound->play();
     }
 

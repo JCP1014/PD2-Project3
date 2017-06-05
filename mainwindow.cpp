@@ -16,6 +16,8 @@
 #include"lulumi1.h"
 #include"lulumi2.h"
 #include"tornado.h"
+#include"linear.h"
+#include"pd2.h"
 #include<QString>
 #include<QLabel>
 #include<QTimer>
@@ -32,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent) :
     settingBg();
 
     dock = new QDockWidget(this);
-    QLabel *label1 = new QLabel("  Your Minions", dock);
+    QLabel *label1 = new QLabel("                                                                                                                              Your    Minions", dock);
     label1->setStyleSheet("color: Blue; font-size: 14pt; font-weight: bold; background:rgb(255,255,128);");
     dock->setTitleBarWidget(label1);
     dock->setStyleSheet("QWidget { color:rgb(255,255,128); }");
@@ -54,23 +56,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(closeChoose()));
     timer->start(8000);
-
-    /*want = new QPushButton(this);
-    want->setText(tr("Want"));
-    want->setFont(QFont("Purisa",30,QFont::Bold));
-    QPalette palette1 = want->palette();
-    palette1.setColor(QPalette::Button,QColor(0,255,0));
-    palette1.setColor(QPalette::ButtonText,Qt::white);
-    want->setPalette(palette1);
-    want->setGeometry(400,510,200,100);
-    bye = new QPushButton(this);
-    bye->setText(tr("Bye"));
-    bye->setFont(QFont("Purisa",30,QFont::Bold));
-    QPalette palette2 = bye->palette();
-    palette2.setColor(QPalette::Button,Qt::red);
-    palette2.setColor(QPalette::ButtonText,Qt::white);
-    bye->setPalette(palette2);
-    bye->setGeometry(620,510,200,100);*/
 
     ManageCard();
     ui->graphicsView->show();
@@ -134,32 +119,32 @@ void MainWindow::ManageCard()
     card_lulumi->setIconSize(QSize(60,120));
 
     card_pd2= new QPushButton(choose);
-    layout->addWidget(card_pd2,2,0);
-    card_pd2->setIcon(QIcon(":/image/img/c++.png"));
-    card_pd2->setIconSize(QSize(60,120));
+    layout->addWidget(card_pd2,2,5,3,3);
+    card_pd2->setIcon(QIcon(":/image/img/hero.png"));
+    card_pd2->setIconSize(QSize(180,210));
 
     card_linear = new QPushButton(choose);
-    layout->addWidget(card_linear,2,1);
+    layout->addWidget(card_linear,2,0);
     card_linear->setIcon(QIcon(":/image/img/linear.png"));
     card_linear->setIconSize(QSize(60,120));
 
     card_electric = new QPushButton(choose);
-    layout->addWidget(card_electric,2,2);
+    layout->addWidget(card_electric,2,1);
     card_electric->setIcon(QIcon(":/image/img/electric.png"));
     card_electric->setIconSize(QSize(60,120));
 
     card_matlab = new QPushButton(choose);
-    layout->addWidget(card_matlab,2,3);
+    layout->addWidget(card_matlab,2,2);
     card_matlab->setIcon(QIcon(":/image/img/matlab.png"));
     card_matlab->setIconSize(QSize(60,120));
 
     card_lens = new QPushButton(choose);
-    layout->addWidget(card_lens,2,4);
+    layout->addWidget(card_lens,2,3);
     card_lens->setIcon(QIcon(":/image/img/lens.png"));
     card_lens->setIconSize(QSize(60,120));
 
     card_light = new QPushButton(choose);
-    layout->addWidget(card_light,2,5);
+    layout->addWidget(card_light,2,4);
     card_light->setIcon(QIcon(":/image/img/light.png"));
     card_light->setIconSize(QSize(60,120));
 
@@ -212,6 +197,8 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
     totoro = false;
     lulumi = false;
     tornado = false;
+    linear = false;
+    pd2 = false;
 
     connect(card_luffy,SIGNAL(clicked()),this,SLOT(set1()));
     connect(card_zoro,SIGNAL(clicked()),this,SLOT(set2()));
@@ -238,6 +225,8 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
     connect(card_totoro,SIGNAL(pressed()),this,SLOT(create1_7()));
     connect(card_lulumi,SIGNAL(pressed()),this,SLOT(create1_8()));
     connect(card_tornado,SIGNAL(pressed()),this,SLOT(createTornado()));
+    connect(card_linear,SIGNAL(pressed()),this,SLOT(create1_9()));
+    connect(card_pd2,SIGNAL(pressed()),this,SLOT(create1_14()));
 }
 
 void MainWindow::mouseReleaseEvent(QMouseEvent *event)
@@ -245,65 +234,81 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
     if(luffy==true)
     {
        Luffy1 * luffy1 = new Luffy1();
-       luffy1->setPos(event->pos().x()-600,event->pos().y());
+       luffy1->setPos(event->pos().x()-600,event->pos().y()-70);
        scene->addItem(luffy1);
        luffy = false;
     }
     if(zoro==true)
     {
        Zoro1 * zoro1 = new Zoro1();
-       zoro1->setPos(event->pos().x()-600,event->pos().y());
+       zoro1->setPos(event->pos().x()-600,event->pos().y()-70);
        scene->addItem(zoro1);
        zoro = false;
     }
     if(bread==true)
     {
        Bread1 * bread1 = new Bread1();
-       bread1->setPos(event->pos().x()-600,event->pos().y());
+       bread1->setPos(event->pos().x()-600,event->pos().y()-70);
        scene->addItem(bread1);
        bread = false;
     }
     if(curry==true)
     {
        Curry1 * curry1 = new Curry1();
-       curry1->setPos(event->pos().x()-600,event->pos().y());
+       curry1->setPos(event->pos().x()-600,event->pos().y()-70);
        scene->addItem(curry1);
        curry = false;
     }
     if(din==true)
     {
        Din1 * din1 = new Din1();
-       din1->setPos(event->pos().x()-600,event->pos().y());
+       din1->setPos(event->pos().x()-600,event->pos().y()-70);
        scene->addItem(din1);
        din = false;
     }
     if(bo==true)
     {
        Bo1 * bo1 = new Bo1();
-       bo1->setPos(event->pos().x()-600,event->pos().y());
+       bo1->setPos(event->pos().x()-600,event->pos().y()-70);
        scene->addItem(bo1);
        bo = false;
     }
     if(totoro==true)
     {
        Totoro1 * totoro1 = new Totoro1();
-       totoro1->setPos(event->pos().x()-600,event->pos().y());
+       totoro1->setPos(event->pos().x()-600,event->pos().y()-70);
        scene->addItem(totoro1);
        totoro = false;
     }
     if(lulumi==true)
     {
        Lulumi1 * lulumi1 = new Lulumi1();
-       lulumi1->setPos(event->pos().x()-600,event->pos().y());
+       lulumi1->setPos(event->pos().x()-600,event->pos().y()-70);
        scene->addItem(lulumi1);
        lulumi = false;
     }
     if(tornado==true)
     {
        Tornado * tornado1 = new Tornado();
-       tornado1->setPos(event->pos().x()-600,event->pos().y());
+       tornado1->setPos(event->pos().x()-650,event->pos().y()-70);
        scene->addItem(tornado1);
        tornado = false;
+    }
+    if(linear==true)
+    {
+       Linear * linear1 = new Linear();
+       linear1->setPos(event->pos().x()-600,event->pos().y()-90);
+       scene->addItem(linear1);
+       linear = false;
+    }
+    if(pd2==true)
+    {
+       PD2 * pd21 = new PD2();
+       pd21->setFlag(QGraphicsItem::ItemIsFocusable);
+       pd21->setFocus();
+       pd21->setPos(event->pos().x()-600,event->pos().y()-80);
+       scene->addItem(pd21);
+       pd2 = false;
     }
 }
 
@@ -334,6 +339,8 @@ void MainWindow::create1_5(){   din = true; }
 void MainWindow::create1_6(){   bo = true;  }
 void MainWindow::create1_7(){   totoro = true;   }
 void MainWindow::create1_8(){   lulumi = true;   }
+void MainWindow::create1_9(){   linear = true;  }
+void MainWindow::create1_14(){   pd2 = true;  }
 void MainWindow::createTornado(){  tornado = true;    }
 
 void MainWindow::set1(){    btnLayout->addWidget(card_luffy);   luffy = false;   }

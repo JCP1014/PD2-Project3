@@ -38,13 +38,13 @@ void Scene::Init()
     QPixmap yes;
     yes.load(":/image/img/choose.png");
     btn_yes->setPixmap(yes);
-    btn_yes->setPos(400,80);
+    btn_yes->setPos(400,10);
     addItem(btn_yes);
     btn_no = new Btn();
     QPixmap no;
     no.load(":/image/img/cancel.png");
     btn_no->setPixmap(no);
-    btn_no->setPos(620,80);
+    btn_no->setPos(620,10);
     addItem(btn_no);
 }
 

@@ -21,6 +21,7 @@ class Bread1 : public QObject, public QGraphicsPixmapItem
          QPointF destn;
          int point_index;
          int hp;
+         int STEP_SIZE;
 };
 
 #endif // BREAD1_H

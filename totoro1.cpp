@@ -19,7 +19,7 @@
 
 Totoro1::Totoro1(QGraphicsItem *parent)
 {
-    hp = 21;
+    hp = 16;
     setPixmap(QPixmap(":/image/img/totoro.png"));
     //setPos(rand()%246-230,rand()%523);
     points << QPointF(200,200) << QPointF(400,200);
@@ -30,7 +30,7 @@ Totoro1::Totoro1(QGraphicsItem *parent)
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(150);
     QTimer * timer2 = new QTimer(this);
-    connect(timer2,SIGNAL(timeout()),this,SLOT(move()));
+    connect(timer2,SIGNAL(timeout()),this,SLOT(blood()));
     timer2->start(250);
 
     walksound = new QMediaPlayer();

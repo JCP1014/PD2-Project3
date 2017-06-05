@@ -11,12 +11,13 @@ class Arrow : public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     Arrow(QGraphicsItem * parent=0);
-    int STEP_SIZE;
+
 public slots:
     void move();
 
 private:
         QMediaPlayer * arrowsound;
+        int STEP_SIZE;
 };
 
 #endif // ARROW_H
