@@ -1,0 +1,61 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>img/backbtn.jpg</file>
+        <file>img/backbtn.png</file>
+        <file>img/bg.png</file>
+        <file>img/bg1.png</file>
+        <file>img/castle.png</file>
+        <file>img/castle2.png</file>
+        <file>img/gamebg.png</file>
+        <file>img/gamebg2.png</file>
+        <file>img/icon.png</file>
+        <file>img/river_bridge.png</file>
+        <file>img/startbg.png</file>
+        <file>img/startbtn.png</file>
+        <file>img/tower.png</file>
+        <file>img/verticalbg.jpg</file>
+        <file>img/bo1.png</file>
+        <file>img/bo2.png</file>
+        <file>img/bread1.png</file>
+        <file>img/bread2.png</file>
+        <file>img/curry1.png</file>
+        <file>img/curry2.png</file>
+        <file>img/lulumi2.png</file>
+        <file>img/totoro.png</file>
+        <file>img/lulumi1.png</file>
+        <file>img/din1.png</file>
+        <file>img/din2.png</file>
+        <file>img/luffy.png</file>
+        <file>img/zoro1.png</file>
+        <file>img/zoro2.png</file>
+        <file>img/arrow.png</file>
+        <file>img/lose3.png</file>
+        <file>img/lose_icon.png</file>
+        <file>img/win.png</file>
+        <file>img/win_icon.png</file>
+        <file>img/hole.png</file>
+        <file>img/tornado.png</file>
+        <file>img/yes.png</file>
+        <file>img/no.png</file>
+        <file>img/choose.png</file>
+        <file>img/cancel.png</file>
+        <file>img/c++.png</file>
+        <file>img/electric.png</file>
+        <file>img/linear.png</file>
+        <file>img/matlab.png</file>
+        <file>img/lens.png</file>
+        <file>img/light.png</file>
+    </qresource>
+    <qresource prefix="/sound">
+        <file>snd/Walking on grass.mp3</file>
+        <file>snd/bgsound.mp3</file>
+        <file>snd/arrowsound.mp3</file>
+        <file>snd/win.mp3</file>
+        <file>snd/fail.mp3</file>
+        <file>snd/lose.mp3</file>
+        <file>snd/cure.mp3</file>
+        <file>snd/Punch.mp3</file>
+        <file>snd/sword.mp3</file>
+        <file>snd/destroy.mp3</file>
+    </qresource>
+</RCC>
