@@ -47,7 +47,21 @@
         <file>img/linear.png</file>
         <file>img/blackphone.png</file>
         <file>img/whitephone.png</file>
-        <file>img/c++ 2.png</file>
+        <file>img/arduino.png</file>
+        <file>img/c.png</file>
+        <file>img/cplus.png</file>
+        <file>img/v=ir.png</file>
+        <file>img/matrix.png</file>
+        <file>img/matlab2.png</file>
+        <file>img/gacha.png</file>
+        <file>img/egg.png</file>
+        <file>img/3eyes.png</file>
+        <file>img/buzz.tiff</file>
+        <file>img/jessie.tiff</file>
+        <file>img/lotso.png</file>
+        <file>img/trex.png</file>
+        <file>img/woody.png</file>
+        <file>img/ball.png</file>
     </qresource>
     <qresource prefix="/sound">
         <file>snd/Walking on grass.mp3</file>

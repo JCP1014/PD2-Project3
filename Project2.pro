@@ -31,7 +31,6 @@ SOURCES += main.cpp\
     zoro1.cpp \
     zoro2.cpp \
     leftcastle.cpp \
-    rightcastle.cpp \
     lefttower.cpp \
     righttower.cpp \
     luffy1.cpp \
@@ -44,7 +43,15 @@ SOURCES += main.cpp\
     pd2.cpp \
     linear.cpp \
     phone.cpp \
-    cplus.cpp
+    drawcards.cpp \
+    electric.cpp \
+    matlab.cpp \
+    lens.cpp \
+    light.cpp \
+    cplus.cpp \
+    score.cpp \
+    messagebox.cpp \
+    rightcastle.cpp
 
 HEADERS  += mainwindow.h \
     scene.h \
@@ -63,7 +70,6 @@ HEADERS  += mainwindow.h \
     zoro1.h \
     zoro2.h \
     leftcastle.h \
-    rightcastle.h \
     lefttower.h \
     righttower.h \
     luffy1.h \
@@ -76,7 +82,15 @@ HEADERS  += mainwindow.h \
     pd2.h \
     linear.h \
     phone.h \
-    cplus.h
+    cplus.h \
+    drawcards.h \
+    electric.h \
+    matlab.h \
+    lens.h \
+    light.h \
+    score.h \
+    messagebox.h \
+    rightcastle.h
 
 FORMS    += mainwindow.ui
 

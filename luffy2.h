@@ -12,6 +12,7 @@ class Luffy2 : public QObject, public QGraphicsPixmapItem
      public:
          Luffy2(QGraphicsItem * parent=0);
          void rotate_to_point(QPointF face);
+         int score;
 
      public slots:
             void move();

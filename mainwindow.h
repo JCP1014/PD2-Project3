@@ -14,6 +14,8 @@
 #include<QHBoxLayout>
 #include<QGridLayout>
 #include"btn.h"
+#include"drawcards.h"
+#include"dialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -26,7 +28,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    Scene *scene;
+    Scene *scene1;
 
     void settingBg();
     void ManageCard();
@@ -45,6 +47,10 @@ public slots:
     void create1_7();
     void create1_8();
     void create1_9();
+    void create1_10();
+    void create1_11();
+    void create1_12();
+    void create1_13();
     void create1_14();
     void createTornado();
     void closeChoose();
@@ -78,20 +84,26 @@ public slots:
     void recover13();
     void recover14();
     void recover15();
+    void getRandom();
+    //void popup();
 
 private:
     Ui::MainWindow *ui;
     QPushButton *card_luffy, *card_zoro, *card_bread, *card_curry, *card_din, *card_bo, *card_totoro, *card_lulumi;
     QPushButton *card_pd2, *card_linear, *card_electric, *card_matlab, *card_lens, *card_light;
+    QPushButton *card_eyes, *card_buzz, *card_jessie, *card_lotso, *card_trex, *card_woody;
     QPushButton *card_tornado;
     bool luffy, zoro, bread, curry, din, bo, totoro, lulumi;
     bool pd2, linear, electric, matlab, lens, light;
+    bool eyes, buzz, woody, jessie, lotso, trex;
     bool tornado;
     QDockWidget *choose,*dock;
-    QWidget *allCards,*btnWidget;
+    QWidget *allCards,*btnWidget,*extra2;
+    QGridLayout *layout,*layout2;
     QHBoxLayout *btnLayout;
-    QGridLayout *layout;
-
+    DrawCards * draw;
+    int number;
+    Dialog * dialog;
 };
 
 #endif // MAINWINDOW_H

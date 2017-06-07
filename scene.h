@@ -13,7 +13,6 @@
 #include"rightcastle.h"
 #include"arrow.h"
 #include"lcdnumber.h"
-#include"tornado.h"
 
 class Scene : public QGraphicsScene
 {
@@ -21,6 +20,12 @@ class Scene : public QGraphicsScene
         Scene(QObject *parent = 0);
         void Init();
         void mousePressEvent(QGraphicsSceneMouseEvent *event);
+        LCDNumber * chooseTime;
+        LCDNumber * number;
+        LCDNumber * myscore;
+        int score;
+
+    private:
         Btn *btn_start;
         Btn *btn_back;
         Btn *btn_yes,*btn_no;
@@ -35,8 +40,6 @@ class Scene : public QGraphicsScene
         RightTower * rtower1;
         RightTower * rtower2;
         RightCastle * rcastle;
-        Arrow * arrow1, *arrow2,*arrow3,*arrow4,*arrow5,*arrow6;
-        LCDNumber * number;
 
     public slots:
         void bgChange();

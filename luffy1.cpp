@@ -21,8 +21,6 @@ Luffy1::Luffy1(QGraphicsItem *parent)
 {
     hp = 8;
     setPixmap(QPixmap(":/image/img/luffy.png"));
-    int y[2] = {0,360};
-    //setPos(rand()%279-258,y[rand()%2]);
     points << QPointF(200,200) << QPointF(400,200);
     point_index = 0;
     destn = points[0];

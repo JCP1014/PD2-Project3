@@ -3,7 +3,7 @@
 
 CPlus::CPlus(QGraphicsItem * parent)
 {
-    setPixmap(QPixmap(":/image/img/c++ 2.png"));
+    setPixmap(QPixmap(":/image/img/cplus.png"));
 
     /*arrowsound = new QMediaPlayer();
     arrowsound->setMedia(QUrl("qrc:/sound/snd/arrowsound.mp3"));

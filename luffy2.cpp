@@ -19,9 +19,12 @@
 #include"phone.h"
 #include"cplus.h"
 
+extern Scene * scene1;
+
 Luffy2::Luffy2(QGraphicsItem *parent)
 {
     hp = 8;
+    score = 0;
     setPixmap(QPixmap(":/image/img/luffy.png"));
     int y[2] = {0,360};
     setPos(rand()%279+197,y[rand()%2]);
@@ -79,6 +82,7 @@ void Luffy2::blood()
             hp += 3;
         if(typeid(*(colliding_items[i])) == typeid(Totoro1))
             hp -= 5;
+            score += 5;
         if(typeid(*(colliding_items[i])) == typeid(Lulumi1))
             hp -= 4;
         if(typeid(*(colliding_items[i])) == typeid(Arrow) || typeid(*(colliding_items[i])) == typeid(Phone) || typeid(*(colliding_items[i])) == typeid(CPlus))

@@ -2,7 +2,10 @@
 #include <QApplication>
 #include<QDesktopWidget>
 #include"lcdnumber.h"
-#include<QFontDatabase>
+#include"drawcards.h"
+#include"scene.h"
+
+Scene * scene1;
 
 int main(int argc, char *argv[])
 {
@@ -19,6 +22,9 @@ int main(int argc, char *argv[])
     w.setWindowTitle("Project2");
     w.setWindowIcon(QIcon(":/image/img/icon.png"));
     w.show();
+
+    //DrawCards d;
+    //d.show();
 
     return a.exec();
 }
