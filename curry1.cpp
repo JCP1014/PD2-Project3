@@ -15,12 +15,12 @@
 #include"totoro2.h"
 #include"lulumi2.h"
 #include"arrow.h"
+#include"lens.h"
 
 Curry1::Curry1(QGraphicsItem *parent)
 {
-    hp = 5;
+    hp = 15;
     setPixmap(QPixmap(":/image/img/curry1.png"));
-    //setPos(rand()%246-230,rand()%523);
     points << QPointF(200,200) << QPointF(400,200);
     point_index = 0;
     destn = points[0];
@@ -30,7 +30,7 @@ Curry1::Curry1(QGraphicsItem *parent)
     timer->start(150);
     QTimer * timer2 = new QTimer(this);
     connect(timer2,SIGNAL(timeout()),this,SLOT(blood()));
-    timer2->start(250);
+    timer2->start(50);
 
 }
 
@@ -80,6 +80,9 @@ void Curry1::blood()
             hp -= 4;
         if(typeid(*(colliding_items[i])) == typeid(Arrow))
             hp -= 1;
+        if(typeid(*(colliding_items[i])) == typeid(Lens))
+            hp += 5;
+
     }
 
     if(hp<=0)

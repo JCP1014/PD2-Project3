@@ -17,7 +17,7 @@ Tornado::Tornado(QGraphicsItem *parent) : QObject()
         setPixmap(QPixmap(":/image/img/tornado.png"));
 
         QTimer * timer1 = new QTimer();
-        connect(timer1,SIGNAL(timeout()),this,SLOT(move()));
+        connect(timer1,SIGNAL(timeout()),this,SLOT(magic()));
         timer1->start(10);
 
         QTimer * timer2 = new QTimer();
@@ -25,7 +25,7 @@ Tornado::Tornado(QGraphicsItem *parent) : QObject()
         timer2->start(600);
 }
 
-void Tornado::move()
+void Tornado::magic()
 {
     int STEP_SIZE = 5;
     setPos(x(),y()-STEP_SIZE);
@@ -42,9 +42,7 @@ void Tornado::move()
     {
         if(typeid(*(colliding_items[i])) == typeid(Luffy2) || typeid(*(colliding_items[i])) == typeid(Zoro2) || typeid(*(colliding_items[i])) == typeid(Bread2) || typeid(*(colliding_items[i])) == typeid(Curry2) || typeid(*(colliding_items[i])) == typeid(Din2) || typeid(*(colliding_items[i])) == typeid(Bo2) || typeid(*(colliding_items[i])) == typeid(Totoro2) || typeid(*(colliding_items[i])) == typeid(Lulumi2) )
         {
-            scene()->removeItem(colliding_items[i]);
-            delete colliding_items[i];
-            return;
+            colliding_items[i]->moveBy(0,-10);
         }
     }
 }

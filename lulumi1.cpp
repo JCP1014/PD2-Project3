@@ -16,10 +16,11 @@
 #include"lulumi2.h"
 #include"arrow.h"
 #include<QMediaPlayerControl>
+#include"lens.h"
 
 Lulumi1::Lulumi1(QGraphicsItem *parent)
 {
-    hp =  14;
+    hp =  24;
     setPixmap(QPixmap(":/image/img/lulumi1.png"));
     //setPos(rand()%246-230,rand()%510);
     points << QPointF(200,200) << QPointF(400,200);
@@ -86,6 +87,9 @@ void Lulumi1::blood()
             hp -= 4;
         if(typeid(*(colliding_items[i])) == typeid(Arrow))
             hp -= 1;
+        if(typeid(*(colliding_items[i])) == typeid(Lens))
+            hp += 5;
+
     }
 
     if(hp<=0)

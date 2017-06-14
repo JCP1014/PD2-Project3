@@ -21,6 +21,9 @@
 #include<QMessageBox>
 #include<QMediaPlayer>
 #include<QMediaPlaylist>
+#include"fstream"
+
+using namespace std;
 
 LeftCastle::LeftCastle(QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem(parent)
 {
@@ -331,6 +334,10 @@ void LeftCastle::blood()
 
     if(hp<=0)
     {
+        std::ofstream outFile("file.out",ios::app);
+        int score = 0;
+        outFile << score << endl;
+        outFile.close();
         bar->setValue(hp*2);
         damagedsound->play();
         scene()->removeItem(this);
@@ -350,6 +357,5 @@ void LeftCastle::blood()
         music->play();
         delete this;
          return;
-
     }
 }

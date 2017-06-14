@@ -15,6 +15,7 @@ class Bo1 : public QObject, public QGraphicsPixmapItem
     public:
         Bo1(QGraphicsItem * parent=0);
         void rotate_to_point(QPointF face);
+        QMediaPlayer * curesound;
 
     public slots:
             void move();
@@ -26,7 +27,7 @@ class Bo1 : public QObject, public QGraphicsPixmapItem
         int point_index;
         int hp;
         QMediaPlayer * walksound;
-        QMediaPlayer * curesound;
+
 
 };
 

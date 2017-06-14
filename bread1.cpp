@@ -14,10 +14,11 @@
 #include"totoro2.h"
 #include"lulumi2.h"
 #include"arrow.h"
+#include"lens.h"
 
 Bread1::Bread1(QGraphicsItem *parent)
 {
-    hp = 5;
+    hp = 15;
     STEP_SIZE = 20;
     setPixmap(QPixmap(":/image/img/bread1.png"));
     points << QPointF(200,200) << QPointF(400,200);
@@ -29,7 +30,7 @@ Bread1::Bread1(QGraphicsItem *parent)
     timer->start(150);
     QTimer * timer2 = new QTimer(this);
     connect(timer2,SIGNAL(timeout()),this,SLOT(blood()));
-    timer2->start(250);
+    timer2->start(50);
 
 }
 
@@ -78,6 +79,9 @@ void Bread1::blood()
             hp -= 4;
         if(typeid(*(colliding_items[i])) == typeid(Arrow))
              hp -= 1;
+        if(typeid(*(colliding_items[i])) == typeid(Lens))
+            hp += 5;
+
     }
 
     if(hp<=0)

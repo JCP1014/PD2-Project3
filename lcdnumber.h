@@ -10,10 +10,16 @@ class LCDNumber : public QLCDNumber
     Q_OBJECT
 public:
     LCDNumber(QGraphicsScene * parent, int min, int sec);
-    QTimer * timer;
+    QTimer * timer,*timer2,*timer3;
     QTime * timeValue;
+    int scoreValue;
+signals:
+    void isClosed();
 public slots:
-    void setDisplay();
+    void setGameTime();
+    void setChooseTime();
+    void setScore();
+    void CLOSE();
 
 };
 

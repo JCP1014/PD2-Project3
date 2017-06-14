@@ -16,6 +16,7 @@
 #include"btn.h"
 #include"drawcards.h"
 #include"dialog.h"
+#include"rank.h"
 
 namespace Ui {
 class MainWindow;
@@ -32,7 +33,6 @@ public:
 
     void settingBg();
     void ManageCard();
-    //void settingHand();
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
     void mouseDoubleClickEvent(QMouseEvent *event);
@@ -52,7 +52,13 @@ public slots:
     void create1_12();
     void create1_13();
     void create1_14();
-    void createTornado();
+    void create1_15();
+    void create1_16();
+    void create1_17();
+    void create1_18();
+    void create1_19();
+    void create1_20();
+    void create1_21();
     void closeChoose();
     void set1();
     void set2();
@@ -68,7 +74,6 @@ public slots:
     void set12();
     void set13();
     void set14();
-    void set15();
     void recover1();
     void recover2();
     void recover3();
@@ -83,27 +88,27 @@ public slots:
     void recover12();
     void recover13();
     void recover14();
-    void recover15();
     void getRandom();
+    void chooseStart();
     //void popup();
 
 private:
     Ui::MainWindow *ui;
     QPushButton *card_luffy, *card_zoro, *card_bread, *card_curry, *card_din, *card_bo, *card_totoro, *card_lulumi;
     QPushButton *card_pd2, *card_linear, *card_electric, *card_matlab, *card_lens, *card_light;
-    QPushButton *card_eyes, *card_buzz, *card_jessie, *card_lotso, *card_trex, *card_woody;
-    QPushButton *card_tornado;
+    QPushButton *card_tornado,*card_fog, *card_smallLight, *card_dizzy, *card_bomb, *card_enlarge, *card_door;
     bool luffy, zoro, bread, curry, din, bo, totoro, lulumi;
     bool pd2, linear, electric, matlab, lens, light;
-    bool eyes, buzz, woody, jessie, lotso, trex;
-    bool tornado;
+    bool tornado,fog,smallLight,dizzy,bomb,enlarge,door;
     QDockWidget *choose,*dock;
     QWidget *allCards,*btnWidget,*extra2;
     QGridLayout *layout,*layout2;
     QHBoxLayout *btnLayout;
+    Rank * rankBoard;
     DrawCards * draw;
     int number;
     Dialog * dialog;
+
 };
 
 #endif // MAINWINDOW_H

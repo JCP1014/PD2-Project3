@@ -26,6 +26,7 @@
 Arrow::Arrow(QGraphicsItem * parent): QObject(),QGraphicsPixmapItem(parent)
 {
     setPixmap(QPixmap(":/image/img/arrow.png"));
+    STEP_SIZE = 30;
 
     arrowsound = new QMediaPlayer();
     arrowsound->setMedia(QUrl("qrc:/sound/snd/arrowsound.mp3"));
@@ -33,14 +34,13 @@ Arrow::Arrow(QGraphicsItem * parent): QObject(),QGraphicsPixmapItem(parent)
     arrowsound->play();
 
     // Connect a timer to move
-    QTimer * move_timer = new QTimer(this);
-    connect(move_timer,SIGNAL(timeout()),this,SLOT(move()));
-    move_timer->start(50);
+    timer = new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
+    timer->start(50);
 }
 
 void Arrow::move()
 {
-    int STEP_SIZE = 30;
     double theta = rotation();
     double dx = STEP_SIZE*qCos(qDegreesToRadians(theta));
     double dy = STEP_SIZE*qSin(qDegreesToRadians(theta));

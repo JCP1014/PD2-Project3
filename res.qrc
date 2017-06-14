@@ -41,7 +41,6 @@
         <file>img/cancel.png</file>
         <file>img/electric.png</file>
         <file>img/matlab.png</file>
-        <file>img/lens.png</file>
         <file>img/light.png</file>
         <file>img/hero.png</file>
         <file>img/linear.png</file>
@@ -62,6 +61,19 @@
         <file>img/trex.png</file>
         <file>img/woody.png</file>
         <file>img/ball.png</file>
+        <file>img/rank.png</file>
+        <file>img/coins.png</file>
+        <file>img/brainwave.png</file>
+        <file>img/fog.png</file>
+        <file>img/small.png</file>
+        <file>img/dizzy.png</file>
+        <file>img/bomb.png</file>
+        <file>img/explode.png</file>
+        <file>img/enlarge.png</file>
+        <file>img/lens.png</file>
+        <file>img/light's.png</file>
+        <file>img/matlab's.png</file>
+        <file>img/door.png</file>
     </qresource>
     <qresource prefix="/sound">
         <file>snd/Walking on grass.mp3</file>

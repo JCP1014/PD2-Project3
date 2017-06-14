@@ -17,10 +17,17 @@
 #include"arrow.h"
 #include"phone.h"
 #include"cplus.h"
+#include"brainwave.h"
+#include"matrix.h"
+#include"matlabs.h"
+#include"lights.h"
+#include"linear.h"
+#include"electric.h"
+#include"matlab.h"
 
 Bread2::Bread2(QGraphicsItem *parent)
 {
-    hp = 5;
+    hp = 15;
     setPixmap(QPixmap(":/image/img/bread2.png"));
     setPos(rand()%279+197,rand()%523);
     points << QPointF(200,200) << QPointF(400,200);
@@ -32,7 +39,7 @@ Bread2::Bread2(QGraphicsItem *parent)
     timer->start(150);
     QTimer * timer2 = new QTimer(this);
     connect(timer2,SIGNAL(timeout()),this,SLOT(blood()));
-    timer2->start(250);
+    timer2->start(50);
 
 }
 
@@ -80,8 +87,16 @@ void Bread2::blood()
             hp -= 5;
         if(typeid(*(colliding_items[i])) == typeid(Lulumi1))
             hp -= 4;
-        if(typeid(*(colliding_items[i])) == typeid(Arrow) || typeid(*(colliding_items[i])) == typeid(Phone) || typeid(*(colliding_items[i])) == typeid(CPlus))
+        if(typeid(*(colliding_items[i])) == typeid(Arrow) ||  typeid(*(colliding_items[i])) == typeid(CPlus))
             hp -= 2;
+        if(typeid(*(colliding_items[i])) == typeid(Phone) || typeid(*(colliding_items[i])) == typeid(BrainWave) || typeid(*(colliding_items[i])) == typeid(Matrix) || typeid(*(colliding_items[i])) == typeid(Matlabs) || typeid(*(colliding_items[i])) == typeid(Lights))
+            hp -=8;
+        if(typeid(*(colliding_items[i])) == typeid(Linear))
+            hp -= 5;
+        if(typeid(*(colliding_items[i])) == typeid(Electric))
+            hp -= 4;
+        if(typeid(*(colliding_items[i])) == typeid(Matlab))
+            hp -= 3;
     }
 
     if(hp<=0)

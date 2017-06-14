@@ -30,9 +30,14 @@
 #include<QMessageBox>
 #include<QMediaPlayer>
 #include<QMediaPlaylist>
+#include"fstream"
+#include"lights.h"
+
+extern Scene * scene1;
 
 RightCastle::RightCastle(QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem(parent)
 {
+    score = 10000;
     hp = 50;
     bar = new QProgressBar();
     bar->setValue(hp/50*100);
@@ -100,7 +105,6 @@ RightCastle::RightCastle(QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem
     swordsound = new QMediaPlayer();
     swordsound->setMedia(QUrl("qrc:/sound/snd/sword.mp3"));
     swordsound->setVolume(250);
-
 }
 
 double RightCastle::distanceTo(QGraphicsItem *item)
@@ -363,15 +367,41 @@ void RightCastle::blood()
 
     if(hp<=0)
     {
+        std::ofstream outFile("file.out",ios::app);
+        outFile << score << endl;
+        outFile.close();
         bar->setValue(hp*2);
         destroyedsound->play();
         scene()->removeItem(this);
+        std::ifstream inFile("file.out",std::ios::in);
+        for(int i=0 ; i<10000 ; i=i+1 )
+            {
+                inFile >> allscore[i];
+            }
+        for(int i=0 ; i<10000 ; i=i+1 )
+        {
+                for(int j=i+1 ; j<10000; j=j+1 )
+                {
+                    if( allscore[i] < allscore[j] )
+                    {
+                        tmp = allscore[i];
+                        allscore[i] = allscore[j];
+                        allscore[j] = tmp;
+                    }
+                }
+            }
+         for(int i=0;i<10000;++i)
+         {
+             if(score==allscore[i])
+             { rank = i+1;
+             break;}
+         }
         QMessageBox * msg = new QMessageBox();
         msg->setIconPixmap(QPixmap(":/image/img/win.png"));
         msg->setWindowIcon(QPixmap(":/image/img/win_icon.png"));
         msg->setWindowTitle("Game Result");
-        msg->setText("Congratulations !");
-        msg->setInformativeText("You Win !");
+        msg->setText("Congratulations !\nYou Win !\n\n\nYour Rank: ");
+        msg->setInformativeText(QString::number(rank));
         msg->setStandardButtons(QMessageBox::Ok);
         msg->show();
         QMediaPlaylist * playlist = new QMediaPlaylist();

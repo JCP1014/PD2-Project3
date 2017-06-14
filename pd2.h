@@ -12,10 +12,11 @@ class PD2 : public QObject, public QGraphicsPixmapItem
 public:
     PD2(QGraphicsItem * parent=0);
     void keyPressEvent(QKeyEvent * event);
-//public slots:
-    //void spawn();
+public slots:
+    void blood();
 private:
     QMediaPlayer * bbsound;
+    int hp;
 };
 
 #endif // PD2_H

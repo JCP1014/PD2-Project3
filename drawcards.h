@@ -4,8 +4,8 @@
 #include <QDialog>
 #include<QPushButton>
 #include<QGridLayout>
-#include<QFrame>
 #include<QLCDNumber>
+#include<QLabel>
 
 class DrawCards : public QDialog
 {
@@ -15,10 +15,10 @@ public:
     QLCDNumber * card;
     QPushButton *go;
     QPushButton *finish;
+    int money;
+    QLabel *label3;
 private:
     QGridLayout *layout;
-    QFrame * frame;
-
 };
 
 #endif // DRAWCARDS_H

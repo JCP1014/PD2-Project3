@@ -16,10 +16,11 @@
 #include"lulumi2.h"
 #include"arrow.h"
 #include<QMediaPlayerControl>
+#include"lens.h"
 
 Din1::Din1(QGraphicsItem *parent)
 {
-    hp = 11;
+    hp = 21;
     setPixmap(QPixmap(":/image/img/din1.png"));
     //int y[2] = {0,360};
     //setPos(rand()%279-258,y[rand()%2]);
@@ -32,7 +33,7 @@ Din1::Din1(QGraphicsItem *parent)
     timer->start(150);
     QTimer * timer2 = new QTimer(this);
     connect(timer2,SIGNAL(timeout()),this,SLOT(blood()));
-    timer2->start(250);
+    timer2->start(50);
 
     walksound = new QMediaPlayer();
     walksound->setMedia(QUrl("qrc:/sound/snd/Walking on grass.mp3"));
@@ -87,6 +88,9 @@ void Din1::blood()
             hp -= 4;
         if(typeid(*(colliding_items[i])) == typeid(Arrow))
             hp -= 1;
+        if(typeid(*(colliding_items[i])) == typeid(Lens))
+            hp += 5;
+
     }
 
     if(hp<=0)

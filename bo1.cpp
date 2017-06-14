@@ -24,10 +24,16 @@
 #include"totoro1.h"
 #include"lulumi1.h"
 #include<QMediaPlayerControl>
+#include"lens.h"
+#include"matlab.h"
+#include"light.h"
+#include"electric.h"
+#include"linear.h"
+#include"pd2.h"
 
 Bo1::Bo1(QGraphicsItem *parent) : QObject()
 {
-    hp = 11;
+    hp = 21;
     setPixmap(QPixmap(":/image/img/bo1.png"));
     //int y[2] = {0,360};
     //setPos(rand()%279-258,y[rand()%2]);
@@ -40,7 +46,7 @@ Bo1::Bo1(QGraphicsItem *parent) : QObject()
     timer1->start(150);
     QTimer * timer2 = new QTimer(this);
     connect(timer2,SIGNAL(timeout()),this,SLOT(blood()));
-    timer2->start(250);
+    timer2->start(50);
 
     walksound = new QMediaPlayer();
     walksound->setMedia(QUrl("qrc:/sound/snd/Walking on grass.mp3"));
@@ -99,6 +105,8 @@ void Bo1::blood()
             hp -= 4;
         if(typeid(*(colliding_items[i])) == typeid(Arrow))
             hp -= 1;
+        if(typeid(*(colliding_items[i])) == typeid(Lens))
+            hp += 5;
 
         if(typeid(*(colliding_items[i])) == typeid(Luffy1))
                 curesound->play();
@@ -113,6 +121,18 @@ void Bo1::blood()
         if(typeid(*(colliding_items[i])) == typeid(Bo1))
                 curesound->play();
         if(typeid(*(colliding_items[i])) == typeid(Totoro1))
+                curesound->play();
+        if(typeid(*(colliding_items[i])) == typeid(Linear))
+                curesound->play();
+        if(typeid(*(colliding_items[i])) == typeid(Electric))
+                curesound->play();
+        if(typeid(*(colliding_items[i])) == typeid(Matlab))
+                curesound->play();
+        if(typeid(*(colliding_items[i])) == typeid(Light))
+                curesound->play();
+        if(typeid(*(colliding_items[i])) == typeid(Lens))
+                curesound->play();
+        if(typeid(*(colliding_items[i])) == typeid(PD2))
                 curesound->play();
         if(typeid(*(colliding_items[i])) == typeid(Lulumi1))
                 curesound->play();

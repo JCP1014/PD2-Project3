@@ -17,10 +17,17 @@
 #include"arrow.h"
 #include"phone.h"
 #include"cplus.h"
+#include"brainwave.h"
+#include"matrix.h"
+#include"matlabs.h"
+#include"lights.h"
+#include"linear.h"
+#include"electric.h"
+#include"matlab.h"
 
 Din2::Din2(QGraphicsItem *parent)
 {
-    hp = 11;
+    hp = 21;
     setPixmap(QPixmap(":/image/img/din2.png"));
     int y[2] = {0,360};
     setPos(rand()%279+197,y[rand()%2]);
@@ -33,7 +40,7 @@ Din2::Din2(QGraphicsItem *parent)
     timer->start(150);
     QTimer * timer2 = new QTimer(this);
     connect(timer2,SIGNAL(timeout()),this,SLOT(blood()));
-    timer2->start(250);
+    timer2->start(50);
 }
 
 void Din2::rotate_to_point(QPointF face)
@@ -80,8 +87,10 @@ void Din2::blood()
             hp -= 5;
         if(typeid(*(colliding_items[i])) == typeid(Lulumi1))
             hp -= 4;
-        if(typeid(*(colliding_items[i])) == typeid(Arrow) || typeid(*(colliding_items[i])) == typeid(Phone) || typeid(*(colliding_items[i])) == typeid(CPlus))
+        if(typeid(*(colliding_items[i])) == typeid(Arrow) ||  typeid(*(colliding_items[i])) == typeid(CPlus))
             hp -= 2;
+        if(typeid(*(colliding_items[i])) == typeid(Phone) || typeid(*(colliding_items[i])) == typeid(BrainWave) || typeid(*(colliding_items[i])) == typeid(Matrix) || typeid(*(colliding_items[i])) == typeid(Matlabs) || typeid(*(colliding_items[i])) == typeid(Lights))
+            hp -=8;
     }
 
     if(hp<=0)

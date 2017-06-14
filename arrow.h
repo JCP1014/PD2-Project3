@@ -5,6 +5,7 @@
 #include<QObject>
 #include<QGraphicsItem>
 #include<QMediaPlayer>
+#include<QTimer>
 
 class Arrow : public QObject, public QGraphicsPixmapItem
 {
@@ -18,6 +19,7 @@ public slots:
 private:
         QMediaPlayer * arrowsound;
         int STEP_SIZE;
+        QTimer * timer = new QTimer();
 };
 
 #endif // ARROW_H

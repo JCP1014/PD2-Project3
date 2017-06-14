@@ -1,20 +1,21 @@
 #ifndef LIGHT_H
 #define LIGHT_H
 
-#include"bread1.h"
+#include<QGraphicsPixmapItem>
+#include<QGraphicsItem>
+#include<QObject>
+#include<QMediaPlayer>
 
-class Light : public Bread1
+class Light : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Light(QGraphicsItem *parent=0);
+    Light(QGraphicsItem * parent=0);
+    void keyPressEvent(QKeyEvent * event);
+public slots:
+    void blood();
 private:
-    QList<QPointF> points;
-    QPointF destn;
-    int point_index;
+    QMediaPlayer * bbsound;
     int hp;
-    int STEP_SIZE;
-
 };
-
 #endif // LIGHT_H

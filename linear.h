@@ -1,15 +1,16 @@
 #ifndef LINEAR_H
 #define LINEAR_H
 
-#include"bread1.h"
+#include"luffy1.h"
 #include<QGraphicsPolygonItem>
 
-class Linear :  public Bread1
+class Linear :  public Luffy1
 {
     Q_OBJECT
 public:
     Linear(QGraphicsItem * parent=0);
     double distanceTo(QGraphicsItem * item);
+public slots:
     void attack();
 private:
     QList<QPointF> points;

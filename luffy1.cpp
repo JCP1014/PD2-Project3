@@ -16,10 +16,11 @@
 #include"lulumi2.h"
 #include"arrow.h"
 #include<QMediaPlayerControl>
+#include"lens.h"
 
 Luffy1::Luffy1(QGraphicsItem *parent)
 {
-    hp = 8;
+    hp = 18;
     setPixmap(QPixmap(":/image/img/luffy.png"));
     points << QPointF(200,200) << QPointF(400,200);
     point_index = 0;
@@ -30,7 +31,7 @@ Luffy1::Luffy1(QGraphicsItem *parent)
     timer->start(150);
     QTimer * timer2 = new QTimer(this);
     connect(timer2,SIGNAL(timeout()),this,SLOT(blood()));
-    timer2->start(250);
+    timer2->start(50);
 
     attacksound = new QMediaPlayer();
     attacksound->setMedia(QUrl("qrc:/sound/snd/Punch.mp3"));
@@ -92,6 +93,9 @@ void Luffy1::blood()
         if(typeid(*(colliding_items[i])) == typeid(Arrow))
             hp -= 1;
             attacksound->play();
+        if(typeid(*(colliding_items[i])) == typeid(Lens))
+                hp += 5;
+
     }
 
     if(hp<=0)

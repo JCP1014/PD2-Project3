@@ -16,14 +16,12 @@
 Scene::Scene(QObject *parent) : QGraphicsScene()
 {
     screenMode = 0;
-    score = 0;
     QMediaPlaylist * playlist = new QMediaPlaylist();
     playlist->addMedia(QUrl("qrc:/sound/snd/bgsound.mp3"));
     playlist->setPlaybackMode(QMediaPlaylist::Loop);
     QMediaPlayer * music = new QMediaPlayer();
     music->setPlaylist(playlist);
     music->play();
-
 }
 
 void Scene::Init()
@@ -55,7 +53,7 @@ void Scene::Init()
     this->addWidget(chooseTime);
     chooseTime->setDigitCount(2);
     chooseTime->setGeometry(322,10,100,75);
-    chooseTime->timer->start(1000);
+    //chooseTime->timer->start(1000);
 }
 
 void Scene::mousePressEvent(QGraphicsSceneMouseEvent *event)
@@ -69,36 +67,18 @@ void Scene::mousePressEvent(QGraphicsSceneMouseEvent *event)
             if(event->scenePos().y() > btn_start->pos().y() && event->scenePos().y() <= btn_start->pos().y()+btn_h)
             {
                 // x , y both in button area
-                cout<< "Button get"<< endl;
 
                 LCDNumber * number = new LCDNumber(this,3,0);
+                number->setStyleSheet("border: 1px solid white; color: rgb(0,255,0); background: black;");
                 this->addWidget(number);
                 number->setGeometry(690,0,150,50);
                 number->timer->start(1000);
-                if(number->timeValue->minute()==0 && number->timeValue->second()==0)
-                {
-                    number->timer->stop();
-                    QMessageBox* msg = new QMessageBox();
-                    msg->setIconPixmap(QPixmap(":/image/img/lose3.png"));
-                    msg->setWindowIcon(QPixmap(":/image/img/lose_icon.png"));
-                    msg->setWindowTitle("Game Result");
-                    msg->setText("Oh no !");
-                    msg->setInformativeText("You Lose !");
-                    msg->setStandardButtons(QMessageBox::Ok);
-                    msg->show();
-                    QMediaPlaylist * playlist = new QMediaPlaylist();
-                    playlist->addMedia(QUrl("qrc:/sound/snd/fail.mp3"));
-                    playlist->setPlaybackMode(QMediaPlaylist::Loop);
-                    QMediaPlayer * music = new QMediaPlayer();
-                    music->setPlaylist(playlist);
-                    music->play();
-                }
-                bgChange();
-                screenMode = 1;
 
-                myscore = new LCDNumber(this,0,0);
-                this->addWidget(myscore);
-                myscore->setGeometry(-550,0,150,50);
+                bgChange();
+
+                //myscore = new LCDNumber(this,0,0);
+                //this->addWidget(myscore);
+                //myscore->setGeometry(-550,0,150,50);
             }
         }
     }
@@ -130,6 +110,7 @@ void Scene::bgChange()
     this->removeItem(btn_start);
     this->removeItem(btn_yes);
     this->removeItem(btn_no);
+    this->chooseTime->timer->stop();
     this->chooseTime->close();
 
     // Back
@@ -189,6 +170,11 @@ void Scene::bgChange()
    rcastle->setPixmap(rbd3);
    rcastle->setPos(235,120);
    this->addItem(rcastle);
+
+   scoreBoard = new LCDNumber(this,0,10000);
+   this->addWidget(scoreBoard);
+   scoreBoard->setGeometry(-539,0,150,50);
+   scoreBoard->display(rcastle->score);
 
    ltower1->bar->setGeometry(110,100,100,30);
    ltower1->bar->setWindowTitle("my tower1");

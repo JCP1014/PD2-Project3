@@ -13,7 +13,7 @@ class Tornado : public QObject, public QGraphicsPixmapItem
         Tornado(QGraphicsItem * parent=0);
 
     public slots:
-        void move();
+        void magic();
         void disappear();
 };
 

@@ -49,9 +49,19 @@ SOURCES += main.cpp\
     lens.cpp \
     light.cpp \
     cplus.cpp \
-    score.cpp \
     messagebox.cpp \
-    rightcastle.cpp
+    rightcastle.cpp \
+    rank.cpp \
+    brainwave.cpp \
+    fog.cpp \
+    smalllight.cpp \
+    dizzy.cpp \
+    bomb.cpp \
+    enlarge.cpp \
+    door.cpp \
+    matrix.cpp \
+    matlabs.cpp \
+    lights.cpp
 
 HEADERS  += mainwindow.h \
     scene.h \
@@ -88,9 +98,19 @@ HEADERS  += mainwindow.h \
     matlab.h \
     lens.h \
     light.h \
-    score.h \
     messagebox.h \
-    rightcastle.h
+    rightcastle.h \
+    rank.h \
+    brainwave.h \
+    fog.h \
+    smalllight.h \
+    dizzy.h \
+    bomb.h \
+    enlarge.h \
+    door.h \
+    matrix.h \
+    matlabs.h \
+    lights.h
 
 FORMS    += mainwindow.ui
 
@@ -98,4 +118,8 @@ RESOURCES += \
     res.qrc
 
 DISTFILES += \
-    img/c++ 2.png
+    img/c++ 2.png \
+    img/matlab's.png \
+    img/light's.png \
+    img/door.png
+

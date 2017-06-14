@@ -16,14 +16,20 @@
 
 class Scene : public QGraphicsScene
 {
+    Q_OBJECT
     public:
         Scene(QObject *parent = 0);
         void Init();
         void mousePressEvent(QGraphicsSceneMouseEvent *event);
         LCDNumber * chooseTime;
         LCDNumber * number;
-        LCDNumber * myscore;
-        int score;
+        LCDNumber * scoreBoard;
+        LeftTower * ltower1;
+        LeftTower * ltower2;
+        LeftCastle * lcastle;
+        RightTower * rtower1;
+        RightTower * rtower2;
+        RightCastle * rcastle;
 
     private:
         Btn *btn_start;
@@ -34,17 +40,10 @@ class Scene : public QGraphicsScene
         int btn_small_w;
         int btn_small_h;
         int screenMode;
-        LeftTower * ltower1;
-        LeftTower * ltower2;
-        LeftCastle * lcastle;
-        RightTower * rtower1;
-        RightTower * rtower2;
-        RightCastle * rcastle;
 
     public slots:
         void bgChange();
         void bgRecover();
-
 };
 
 #endif // SCENE_H

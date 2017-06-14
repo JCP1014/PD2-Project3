@@ -9,6 +9,9 @@
 #include<QGraphicsScene>
 #include<QMediaPlayer>
 #include<QProgressBar>
+#include"lcdnumber.h"
+#include<QWidget>
+#include<QList>
 
 class RightCastle : public QObject, public QGraphicsPixmapItem
 {
@@ -17,8 +20,9 @@ public:
     RightCastle(QGraphicsItem * parent=0);
     double distanceTo(QGraphicsItem *item);
     void attack();
-    int hp;
     QProgressBar * bar;
+    int hp;
+    int score;
 
 public slots:
     void acquire_target();
@@ -41,7 +45,11 @@ private:
     QMediaPlayer * damagedsound;
     QMediaPlayer * destroyedsound;
     QMediaPlayer * swordsound;
-
+    LCDNumber * scoreBoard;
+    QList<int>list;
+    int allscore[10000];
+    int rank;
+    int tmp;
 };
 
 #endif // RIGHTCASTLE_H
